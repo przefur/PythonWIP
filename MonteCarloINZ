@@ -1,0 +1,85 @@
+'''
+created during @Sentdex tutorial on Monte Carlo betting system, adjusted to
+fit to my Engineer Thesis
+'''
+
+import random
+
+import matplotlib.pyplot as plt
+
+
+# RNG Dice Roller
+
+def rollDice(level):
+    roll = random.randint(1, 100)
+    if level == 'easy':
+        if roll <= 50:
+            return True
+        else:
+            return False
+    elif level == "advanced":
+        if roll <= 49:
+            return True
+        else:
+            return False
+
+
+'''
+Simple bMonte Carlo betting system.
+'''
+
+
+def simpleMC_bettor(level, funds, initial_wager, wager_count):
+    global value
+
+    value = funds
+    wager = initial_wager
+
+    # wager X
+    wX = []
+
+    # value Y
+    vY = []
+    simpleMC_bettor.level = level
+    currentWager = 1
+    while currentWager <= wager_count:
+        if simpleMC_bettor.level == 'easy':
+            if rollDice(simpleMC_bettor.level):
+                value += wager
+                wX.append(currentWager)
+                vY.append(value)
+            else:
+                value -= wager
+                wX.append(currentWager)
+                vY.append(value)
+                if value == 0:
+                    currentWager += 1000000
+            plt.figure(1)
+            plt.plot(wX, vY)
+        elif simpleMC_bettor.level == 'advanced':
+            if rollDice(simpleMC_bettor.level):
+                value += wager
+                wX.append(currentWager)
+                vY.append(value)
+            else:
+                value -= wager
+                wX.append(currentWager)
+                vY.append(value)
+                if value == 0:
+                    currentWager += 1000000
+            plt.figure(2)
+            plt.plot(wX, vY)
+
+        currentWager += 1
+
+
+x = 0
+
+while x < 100:
+    simpleMC_bettor('easy', 1000, 100, 100)
+    # simpleMC_bettor('advanced', 1000, 100, 100)
+    x += 1
+
+plt.ylabel('Account Value')
+plt.xlabel('Wager Count')
+plt.show()
