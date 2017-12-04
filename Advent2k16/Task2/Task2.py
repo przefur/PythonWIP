@@ -27,7 +27,6 @@ def move(input_string):
     storage = []
     moves = input_string.split('\n')
     for line in moves:
-        print(line)
         for character in line:
             if character == 'U' and currentNumber not in (1, 2, 3):
                 currentNumber -= 3
@@ -54,7 +53,6 @@ def move2(input_string):
     storage = []
     moves = input_string.split('\n')
     for line in moves:
-        print(line)
         for character in line:
             if character == 'U' and currentNumber in (10, 11, 12, 6, 7, 8):
                 currentNumber -= 4
@@ -99,16 +97,11 @@ solution()
 solution2()
 
 """
-    |        '||''''|      .|'''.|     |''||''|    '||'  '||'    '||''''|
-   |||        ||  .        ||..  '        ||        ||    ||      ||  .
-  |  ||       ||''|         ''|||.        ||        ||''''||      ||''|
- .''''|.      ||          .     '||       ||        ||    ||      ||
-.|.  .||.    .||.....|    |'....|'       .||.      .||.  .||.    .||.....|
 
+    |        '||''''|      .|'''.|     |''||''|    '||'  '||'    '||''''|   |''||''|    '||'      ..|'''.|
+   |||        ||  .        ||..  '        ||        ||    ||      ||  .        ||        ||     .|'     '
+  |  ||       ||''|         ''|||.        ||        ||''''||      ||''|        ||        ||     ||
+ .''''|.      ||          .     '||       ||        ||    ||      ||           ||        ||     '|.      .
+.|.  .||.    .||.....|    |'....|'       .||.      .||.  .||.    .||.....|    .||.      .||.     ''|....'
 
-|''||''|    '||'      ..|'''.|
-   ||        ||     .|'     '
-   ||        ||     ||
-   ||        ||     '|.      .
-  .||.      .||.     ''|....'
   """
