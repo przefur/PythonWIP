@@ -10,9 +10,9 @@ def input(task):
         print("File not found")
 
 
-def Most_Common(lst):
+def mostCommon(lst):
     data = Counter(lst)
-    return data.most_common(1)[0][0]
+    return data.most_common()[0][0]
 
 
 def leastCommon(lst):
@@ -28,7 +28,7 @@ def part1(input_string):
         for i in range(0, 8):
             data[i] += line[i]
     for i in range(0, 8):
-        most_common += Most_Common(data[i])
+        most_common += mostCommon(data[i])
     return most_common
 
 
