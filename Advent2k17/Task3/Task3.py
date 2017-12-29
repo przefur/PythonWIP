@@ -35,3 +35,15 @@ def solution():
 
 
 print(solution())
+
+
+# defining important points:
+# fist, second and third corner has 2 neighbours
+# fourth corner has 3 neighbours
+# fist in a player has only 2 neighbours
+# every other in-between cell has 3 neighbours
+# fist and second cell is 1
+
+
+def solution2(input_string):
+    pass
